@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:now_ui_flutter/constants/Theme.dart';
 
 class DrawerTile extends StatelessWidget {
-  final String title;
-  final IconData icon;
-  final Function onTap;
+  final String? title;
+  final IconData? icon;
+  final GestureTapCallback? onTap;
   final bool isSelected;
   final Color iconColor;
 
@@ -44,7 +44,7 @@ class DrawerTile extends StatelessWidget {
                       : NowUIColors.white.withOpacity(0.6)),
               Padding(
                 padding: const EdgeInsets.only(left: 8.0),
-                child: Text(title,
+                child: Text(title!,
                     style: TextStyle(
                         letterSpacing: .3,
                         fontSize: 15,

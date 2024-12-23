@@ -7,14 +7,14 @@ import 'package:now_ui_flutter/constants/Theme.dart';
 import 'package:now_ui_flutter/widgets/drawer-tile.dart';
 
 class NowDrawer extends StatelessWidget {
-  final String currentPage;
+  final String? currentPage;
 
   NowDrawer({this.currentPage});
 
   _launchURL() async {
     const url = 'https://creative-tim.com';
-    if (await canLaunch(url)) {
-      await launch(url);
+    if (await canLaunchUrl(Uri.parse(url))) {
+      await launchUrl(Uri.parse(url));
     } else {
       throw 'Could not launch $url';
     }
@@ -59,7 +59,7 @@ class NowDrawer extends StatelessWidget {
             padding: EdgeInsets.only(top: 36, left: 8, right: 16),
             children: [
               DrawerTile(
-                  icon: FontAwesomeIcons.home,
+                  icon: FontAwesomeIcons.house,
                   onTap: () {
                     if (currentPage != "Home")
                       Navigator.pushReplacementNamed(context, '/home');
@@ -104,7 +104,7 @@ class NowDrawer extends StatelessWidget {
                   title: "Account",
                   isSelected: currentPage == "Account" ? true : false),
               DrawerTile(
-                  icon: FontAwesomeIcons.cog,
+                  icon: FontAwesomeIcons.gear,
                   onTap: () {
                     if (currentPage != "Settings")
                       Navigator.pushReplacementNamed(context, '/settings');

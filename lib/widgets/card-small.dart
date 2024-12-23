@@ -10,7 +10,7 @@ class CardSmall extends StatelessWidget {
 
   final String cta;
   final String img;
-  final Function tap;
+  final GestureTapCallback tap;
   final String title;
 
   static void defaultFunc() {

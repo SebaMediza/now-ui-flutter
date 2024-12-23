@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:now_ui_flutter/constants/Theme.dart';
 
 class Input extends StatelessWidget {
-  final String placeholder;
-  final Widget suffixIcon;
-  final Widget prefixIcon;
-  final Function onTap;
-  final Function onChanged;
-  final TextEditingController controller;
+  final String? placeholder;
+  final Widget? suffixIcon;
+  final Widget? prefixIcon;
+  final GestureTapCallback? onTap;
+  final ValueChanged<String>? onChanged;
+  final TextEditingController? controller;
   final bool autofocus;
   final Color borderColor;
 

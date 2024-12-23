@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:now_ui_flutter/constants/Theme.dart';
 
 class TableCellSettings extends StatelessWidget {
-  final String title;
-  final Function onTap;
+  final String? title;
+  final GestureTapCallback? onTap;
   TableCellSettings({this.title, this.onTap});
 
   @override
@@ -16,7 +16,7 @@ class TableCellSettings extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(title, style: TextStyle(color: NowUIColors.text)),
+            Text(title!, style: TextStyle(color: NowUIColors.text)),
             Padding(
               padding: const EdgeInsets.only(right: 8.0),
               child: Icon(Icons.arrow_forward_ios,

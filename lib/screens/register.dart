@@ -18,6 +18,7 @@ class Register extends StatefulWidget {
 class _RegisterState extends State<Register> {
   bool _checkboxValue = false;
 
+  // ignore: deprecated_member_use
   final double height = window.physicalSize.height;
 
   @override
@@ -154,10 +155,10 @@ class _RegisterState extends State<Register> {
                                             Checkbox(
                                                 activeColor:
                                                     NowUIColors.primary,
-                                                onChanged: (bool newValue) =>
+                                                onChanged: (bool? newValue) =>
                                                     setState(() =>
                                                         _checkboxValue =
-                                                            newValue),
+                                                            newValue ?? false),
                                                 value: _checkboxValue),
                                             Text(
                                                 "I agree with the terms and conditions",
@@ -172,27 +173,27 @@ class _RegisterState extends State<Register> {
                                     ],
                                   ),
                                   Center(
-                                    child: RaisedButton(
-                                      textColor: NowUIColors.white,
-                                      color: NowUIColors.primary,
+                                    child: ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                        foregroundColor: NowUIColors.white,
+                                        backgroundColor: NowUIColors.primary,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(32.0),
+                                        ),
+                                        padding: EdgeInsets.only(
+                                            left: 32.0,
+                                            right: 32.0,
+                                            top: 12,
+                                            bottom: 12),
+                                      ),
                                       onPressed: () {
                                         // Respond to button press
                                         Navigator.pushReplacementNamed(
                                             context, '/home');
                                       },
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(32.0),
-                                      ),
-                                      child: Padding(
-                                          padding: EdgeInsets.only(
-                                              left: 32.0,
-                                              right: 32.0,
-                                              top: 12,
-                                              bottom: 12),
-                                          child: Text("Get Started",
-                                              style:
-                                                  TextStyle(fontSize: 14.0))),
+                                      child: Text("Get Started",
+                                          style: TextStyle(fontSize: 14.0)),
                                     ),
                                   ),
                                 ],

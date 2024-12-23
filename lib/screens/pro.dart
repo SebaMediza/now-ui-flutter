@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -7,8 +6,8 @@ import 'package:now_ui_flutter/constants/Theme.dart';
 class Pro extends StatelessWidget {
   _launchURL() async {
     const url = 'https://creative-tim.com';
-    if (await canLaunch(url)) {
-      await launch(url);
+    if (await canLaunchUrl(Uri.parse(url))) {
+      await launchUrl(Uri.parse(url));
     } else {
       throw 'Could not launch $url';
     }
@@ -125,23 +124,21 @@ class Pro extends StatelessWidget {
                         padding: const EdgeInsets.only(top: 16.0),
                         child: SizedBox(
                           width: double.infinity,
-                          child: FlatButton(
-                            textColor: NowUIColors.white,
-                            color: NowUIColors.info,
-                            onPressed: _launchURL,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(4.0),
+                          child: TextButton(
+                            style: TextButton.styleFrom(
+                              foregroundColor: NowUIColors.white,
+                              backgroundColor: NowUIColors.info,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(4.0),
+                              ),
+                              padding: EdgeInsets.only(
+                                  left: 16.0, right: 16.0, top: 12, bottom: 12),
                             ),
-                            child: Padding(
-                                padding: EdgeInsets.only(
-                                    left: 16.0,
-                                    right: 16.0,
-                                    top: 12,
-                                    bottom: 12),
-                                child: Text("GET STARTED",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 16.0))),
+                            onPressed: _launchURL,
+                            child: Text("GET STARTED",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16.0)),
                           ),
                         ),
                       )

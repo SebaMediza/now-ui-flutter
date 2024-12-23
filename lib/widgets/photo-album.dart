@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:now_ui_flutter/constants/Theme.dart';
 
 class PhotoAlbum extends StatelessWidget {
-  final List<String> imgArray;
+  final List<String>? imgArray;
 
   PhotoAlbum({@required this.imgArray});
 
@@ -34,7 +34,7 @@ class PhotoAlbum extends StatelessWidget {
               crossAxisSpacing: 10,
               mainAxisSpacing: 10,
               crossAxisCount: 3,
-              children: imgArray
+              children: imgArray!
                   .map((item) => Container(
                       height: 100,
                       decoration: BoxDecoration(

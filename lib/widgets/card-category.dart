@@ -8,7 +8,7 @@ class CardCategory extends StatelessWidget {
       this.tap = defaultFunc});
 
   final String img;
-  final Function tap;
+  final GestureTapCallback tap;
   final String title;
 
   static void defaultFunc() {
